@@ -48,26 +48,11 @@ en:
       content_home: "This is the home page for the"
       content_link: "Framgia"
       href: "https://education.framgia.vn"
-<<<<<<< fe82baedc76e1b69e21a269c00e99c7eb13ffbdc
-<<<<<<< 708b89cbebac66e16b7d26a011b9f9cd9e01c3f9
     header:
       title: "Framgia Training System"
       content_link_home: "Home"
       content_link_help: "Help"
       content_link_Login: "Log in"
-=======
-=======
-      account: "Account"
->>>>>>> finish logout
-      users: "Users"
-      profile: "Profile"
-      settings: "Settings"
-      logout: "Log out"
-      login: "Log in"
-      edit: "Edit profile"
-    footer:
-      content: "© 2018 By Framgia - Human Development Division - Education Section - All rights reserved."
->>>>>>> logout
     application:
       href_logo: "https://cdn.dribbble.com/users/975753/avatars/small/334ae3b0c36422288bd22fc6ad5ce6b3.png?1445248755"
       full_title: "Framgia Training System"
@@ -78,23 +63,8 @@ en:
       content_help: "This is the help page for the"
       content_link: "Framgia"
       href: "https://education.framgia.vn"
-<<<<<<< 0cd962afd6b88d64fdaeda8bac89600348f972c4
-=======
   sessions:
     new:
-      title: "Log in"
-      signupnow: "Sign up now!"
-      login: "Log in"
-      remember: "Remember me on this computer"
-    create:
-      invalid: "Invalid email/password combination"
-  users:
-    index:
-      allusers: "All users"
-      require: "Please log in."
+      remember: "Remember"
+      login: "Login"
 
-
-
-
-
->>>>>>> finish user
