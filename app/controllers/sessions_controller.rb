@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       log_in @user
       params[:session][:remember_me] == "1" ? remember(@user) : forget(@user)
-      byebug
+      # byebug
       redirect_to @user
     else
       flash.now[:danger] = t "sessions.create.invalid"
