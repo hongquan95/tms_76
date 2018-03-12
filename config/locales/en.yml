@@ -88,6 +88,10 @@ en:
       remember: "Remember me on this computer"
     create:
       invalid: "Invalid email/password combination"
+  users:
+    index:
+      allusers: "All users"
+      require: "Please log in."
 
 
 
