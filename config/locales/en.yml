@@ -42,17 +42,21 @@ en:
     title500: "We're sorry, but something went wrong (500)"
     wrong: "We're sorry, but something went wrong."
     checklog: "If you are the application owner check the logs for more information."
-  layout:
+  layouts:
     home:
       content_h1: "Welcome to Framgia Training System"
       content_home: "This is the home page for the"
       content_link: "Framgia"
       href: "https://education.framgia.vn"
+      edit: "Edit"
     header:
       title: "Framgia Training System"
       content_link_home: "Home"
       content_link_help: "Help"
       content_link_Login: "Log in"
+      edit:
+      profile: "Profile"
+      users: "Users"
     application:
       href_logo: "https://cdn.dribbble.com/users/975753/avatars/small/334ae3b0c36422288bd22fc6ad5ce6b3.png?1445248755"
       full_title: "Framgia Training System"
@@ -63,3 +67,23 @@ en:
       content_help: "This is the help page for the"
       content_link: "Framgia"
       href: "https://education.framgia.vn"
+  sessions:
+    new:
+      remember: "Remember"
+      login: "Login"
+  users:
+    index:
+      allusers: "All Users"
+    edit:
+      title: "Edit"
+      savechange: "Save Change"
+      content_change: "Change"
+      content_h1: "Update your profile"
+    form:
+      trainer: "Trainner"
+      trainnee: "Trainnee"
+  shared:
+    error_messages:
+      content: "The form contains"
+
+
