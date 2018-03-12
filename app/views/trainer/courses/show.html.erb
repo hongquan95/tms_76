@@ -1,25 +1,55 @@
 <% provide :title, @course.name %>
-<div class="row">
+<div class="row" id="main">
   <aside class="col-md-8">
     <section class="user_info">
       <table class="table table-striped">
         <thead>
           <tr>
-            <th><%= t ".course_name" %></th>
-            <th><%= t ".description" %></th>
-            <th><%= t ".start" %></th>
-            <th><%= t ".end" %></th>
+            <th><%= t ".course_name" %>
+            </th>
+            <th><%= t ".description" %>
+            </th>
+            <th><%= t ".start" %>
+            </th>
+            <th><%= t ".end" %>
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><%= @course.name %></td>
-            <td><%= @course.description %></td>
-            <td><%= @course.start_date %></td>
-            <td><%= @course.end_date %></td>
+            <td><%= @course.name %>
+            </td>
+            <td><%= @course.description %>
+            </td>
+            <td><%= @course.start_date %>
+            </td>
+            <td><%= @course.end_date %>
+            </td>
           </tr>
         </tbody>
-  </table>
+      </table>
+      <div><%= t ".list_trainer" %>
+        <table class="table table-striped">
+          <tbody>
+            <tr><% @trainer.each do |user| %>
+              <td><%= gravatar_for user, size: Settings.avatarsizeshow %><%= link_to user.name, user %>
+              </td><% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <%= will_paginate @trainee %>
+        <table class="table table-striped">
+          <tbody><%= t ".list_trainee" %><% @trainee.each do |user| %>
+            <tr>
+              <td><%= gravatar_for user, size: Settings.avatarsizeshow %><%= link_to user.name, user %>
+              </td>
+            </tr><% end %>
+          </tbody>
+        </table>
+        <%= will_paginate @trainee %>
+      </div>
     </section>
   </aside>
 </div>

@@ -14,3 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w( validate_add.js )
+Rails.application.config.assets.precompile += %w( open_close.js )

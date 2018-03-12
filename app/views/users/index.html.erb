@@ -1,22 +1,10 @@
 <% provide :title, t(".all_users") %>
 <h1><%= t ".all_users" %></h1>
-<%= will_paginate %>
 
-<% if current_user.admin? %>
-  <%= link_to t(".addusers"), signup_path, class: "btn btn-warning", id: "new-user" %>
-<% end %>
-<% if current_user.trainer? %>
-<div class="col-md-12" >
-  <ul class="nav navbar-nav navbar-inverse">
-    <li><%= link_to t(".new_course"), new_trainer_course_path %></li>
-    <li><%= link_to t(".all_courses"),  trainer_courses_path %></li>
-    <li><%= link_to t(".all_my_course"), trainer_have_courses_path(current_user) %></li>
-</ul>
-</div>
-<% end %>
-
-<ul class="users">
-  <%= render @users %>
+<ul id="main" class="users">
+  <%= will_paginate %>
+    <%= render @users %>
+  <%= will_paginate %>
 </ul>
 
-<%= will_paginate %>
+

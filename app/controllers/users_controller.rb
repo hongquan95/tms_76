@@ -16,11 +16,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      log_in @user
       flash[:success] = t ".welcome"
     else
       render :new
     end
+    redirect_to users_path
   end
 
   def edit; end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     return render :edit unless @user.update_attributes user_params
     flash[:success] = t ".notice"
-    redirect_to @user
+    redirect_to users_path
   end
 
   def destroy

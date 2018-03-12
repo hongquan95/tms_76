@@ -66,6 +66,12 @@ en:
     application:
       href_logo: "https://cdn.dribbble.com/users/975753/avatars/small/334ae3b0c36422288bd22fc6ad5ce6b3.png?1445248755"
       full_title: "Framgia Training System"
+    menu:
+      addusers: "Add User"
+      all_users: "All Users"
+      new_course: "New Course"
+      all_courses: :"All Course"
+      all_my_course: "All My Course"
   static_pages:
     help:
       title: "Help"
@@ -93,11 +99,12 @@ en:
       new_course: "New Course"
       all_courses: :"All Course"
       all_my_course: "All My Course"
-
     edit:
       title: "Edit"
       h1_edit: "Edit Profile"
       savechange: "Save Change"
+    create:
+      welcome: "User created"
     new:
       title: "New User"
       submit: "Change"
@@ -114,7 +121,7 @@ en:
       required_graduation: "Graduation is required"
     user:
       delete: "delete"
-      yousure: "You sure?"
+      you_sure: "You sure?"
       edit: "Edit"
     destroy:
       notice: "User deleted"
@@ -135,24 +142,43 @@ en:
     courses:
       index:
         all_course: "All Courses"
+        courses: "Course"
+        course_num: "Course num:"
       new:
         title: "Create Course"
+      edit:
+        title: "Edit Course"
       show:
         course_name: "CourseName"
         description: "Description"
         start: "StartDate"
         end: "EndDate"
+        list_trainer: "Trainers"
+        list_trainee: "Trainees"
+      create:
+        sucess: "Course Created"
+        error: "Invalid"
+      update:
+        success: "Update successed"
+      destroy:
+        successdelete: "Course Deleted"
+        invalid: "Invalid"
+      course:
+        delete: "Delete"
+        you_sure: "Are you sure?"
       course_form:
         new: "Create"
         name: Name
         description: "Description"
         start: "Start-Date"
         end: "End-Date"
-
+        add_mem: "Add Member"
     user_courses:
       index:
         all_my_courses: "My Courses"
         courses: "Course"
+        edit_course: "Edit"
         you_have: "You have"
         add_member: "Add Member"
+
 

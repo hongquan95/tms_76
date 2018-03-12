@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def logged_in_user
     unless logged_in?
       store_location
-      flash[:danger] = t "application.please"
+      flash[:danger] = t ".please"
       redirect_to login_url
     end
   end
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def verify
     unless current_user.admin? || current_user.trainer?
       redirecto_to root_url
-      flash[:danger] = t "application.cantaccess"
+      flash[:danger] = t ".cantaccess"
     end
   end
 end
