@@ -63,3 +63,19 @@ en:
       content_help: "This is the help page for the"
       content_link: "Framgia"
       href: "https://education.framgia.vn"
+<<<<<<< 0cd962afd6b88d64fdaeda8bac89600348f972c4
+=======
+  sessions:
+    new:
+      title: "Log in"
+      signupnow: "Sign up now!"
+      login: "Log in"
+      remember: "Remember me on this computer"
+    create:
+      invalid: "Invalid email/password combination"
+
+
+
+
+
+>>>>>>> finish user
