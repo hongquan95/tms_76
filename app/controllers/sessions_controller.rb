@@ -3,11 +3,9 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    # byebug
     if @user && @user.authenticate(params[:session][:password])
       log_in @user
       params[:session][:remember_me] == "1" ? remember(@user) : forget(@user)
-      # byebug
       redirect_to @user
     else
       flash.now[:danger] = t "sessions.create.invalid"
