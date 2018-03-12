@@ -20,6 +20,34 @@
           </tr>
         </tbody>
   </table>
+  <div>
+    <%= t ".list_trainer" %>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <% @trainer.each do |user| %>
+            <td><%= gravatar_for user, size: Settings.avatarsizeshow %>
+            <%= link_to user.name, user %>
+          </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <tbody>
+        <%= will_paginate @trainee %>
+          <%= t ".list_trainee" %>
+            <% @trainee.each do |user| %>
+              <tr>
+                <td><%= gravatar_for user, size: Settings.avatarsizeshow %><%= link_to user.name, user %></td>
+              </tr>
+            <% end %>
+        <%= will_paginate @trainee %>
+      </tbody>
+    </table>
+  </div>
     </section>
   </aside>
 </div>

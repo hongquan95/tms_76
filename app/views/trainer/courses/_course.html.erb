@@ -1,4 +1,4 @@
 <li class="list-group-item list-group-item-info">
-  <%= link_to course.name, trainer_course_path(course) %>
+  <%= link_to course.name, trainer_course_path(course) %> |
+  <%= link_to t(".delete"), trainer_course_path(course), method: :delete,  data: {confirm: t(".you_sure")} %>
 </li>
-

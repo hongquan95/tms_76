@@ -10,7 +10,9 @@
 <ul class="users list-group">
   <% @user_courses.each do |course| %>
     <li class="list-group-item list-group-item-info">
-      <%=  link_to course.name, "#" %>&nbsp;|&nbsp;<%= link_to t(".add_member"), "#" %>
+      <%= link_to course.name, trainer_course_path(course) %> |
+      <%= link_to t(".add_member"), edit_trainer_course_path(course, :send => t(".add_member")) %> |
+      <%= link_to t(".edit_course"), edit_trainer_course_path(course) %>
     </li>
   <% end %>
 </ul>

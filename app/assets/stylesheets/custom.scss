@@ -125,6 +125,10 @@ aside {
   float: left;
   margin-right: 10px;
 }
+.img-thumbnail{
+  border-radius: 50%;
+  background-color: $color_777
+}
 
 .gravatar_edit {
   margin-top: 15px;

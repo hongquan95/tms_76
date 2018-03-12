@@ -12,6 +12,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {maximum: Settings.name_maxlen}
   validates :password, presence: true, length: {minimum: Settings.password_minlen}
   before_save :downcase_email
+  scope :trainer, ->{where role: 1}
+  scope :trainee, ->{where role: 2}
   has_secure_password
   enum role: {admin: 0, trainer: 1, trainee: 2}
 
