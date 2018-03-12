@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
   before_action :load_user, only: %i(show edit update)
-  before_action :logged_in_user, except: %i(destoy update create)
-  before_action :correct_user, only: %i(update edit)
+  before_action :logged_in_user, except: %i(destroy update create)
+  before_action :correct_user, only: %i(update edit destroy)
 
   def index
     @users = User.paginate page: params[:page]
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
@@ -25,8 +24,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     return render :edit unless @user.update_attributes user_params
@@ -34,11 +32,20 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
+  def destroy
+    if @user.destroy
+      flash[:success] = t ".notice"
+    else
+      flash[:danger] = t ".fail"
+    end
+    redirect_to users_url
+  end
+
   private
 
   def user_params
     params.require(:user).permit :name, :email, :password,
-      :password_confirmation
+      :password_confirmation, :school, :graduation
   end
 
   def logged_in_user
@@ -51,7 +58,7 @@ class UsersController < ApplicationController
 
   def correct_user
     load_user
-    redirect_to root_url unless current_user? @user
+    redirect_to root_url unless current_user?(@user) || admin?(current_user)
   end
 
   def load_user

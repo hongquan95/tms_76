@@ -1,6 +1,12 @@
 <% provide :title, t(".allusers") %>
 <h1><%= t ".allusers" %></h1>
-
+<% if admin? current_user %>
+<<<<<<< 91d8ce99e928127641d352ad0a48861b30c38893
+  <%= link_to t(".adduser"), signup_path, class: "btn btn-default", id: "new-user" %>
+=======
+<%= link_to t(".adduser"), signup_path, class: "btn btn-default", id: "new-user" %>
+>>>>>>> Admin show alluser, edit user, add and delete user
+<% end %>
 <%= will_paginate %>
 
 <ul class="users">

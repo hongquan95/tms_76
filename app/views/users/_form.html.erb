@@ -17,10 +17,10 @@
   <%= f.select(:role, select_option(t(".trainer"), 1,t(".trainnee"), 2) , {}, {class: "form-control"}) %>
 
   <%= f.label :school  %>
-  <%= f.text_field :school , class: "form-control" %>
+  <%= f.text_field :school, class: "form-control" %>
 
   <%= f.label :Graduation  %>
-  <%= f.text_field :graduation , class: "form-control" %>
+  <%= f.text_field :graduation, class: "form-control" %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
