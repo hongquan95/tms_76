@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :load_user, only: %i(show)
-  before_action :logged_in_user, only: %i(index update)
-  before_action :correct_user, only: %i(update)
+  before_action :logged_in_user, only: %i(index update edit)
+  before_action :correct_user, only: %i(update edit)
 
   def index
     @users = User.paginate page: params[:page]
@@ -26,6 +26,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    return render :edit unless @user.update_attributes user_params
+    flash[:success] = t "users.update.notice"
+    redirect_to @user
+  end
+
+
+
   private
 
   def user_params
@@ -42,7 +53,6 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    byebug
     load_user
     redirect_to root_url unless current_user? @user
   end
