@@ -5,6 +5,10 @@ module UsersHelper
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
 
+  def select_option title_1, value_1, title_2, value_2
+  	options_for_select([[t(title_1), value_1], [t(title_2), value_2]])
+  end
+
   def admin? user
     user.role == 0
   end

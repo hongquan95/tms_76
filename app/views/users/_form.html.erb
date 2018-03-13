@@ -14,7 +14,7 @@
   <%= f.password_field :password_confirmation, class: "form-control" %>
 
   <%= f.label :position %>
-  <%= f.select(:role, options_for_select([[t("users.form.trainer"), 1], [t("users.form.trainnee"), 2]]), {}, {class: "form-control"}) %>
+  <%= f.select(:role, select_option(t("users.form.trainer"), 1,t("users.form.trainnee"), 2) , {}, {class: "form-control"}) %>
 
   <%= f.label :school  %>
   <%= f.text_field :school , class: "form-control" %>

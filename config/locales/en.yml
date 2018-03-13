@@ -84,17 +84,11 @@ en:
       savechange: "Save Change"
       content_change: "Change"
       content_h1: "Update your profile"
+      require: "please login"
+      href: "http://gravatar.com/emails"
     form:
       trainer: "Trainner"
       trainnee: "Trainnee"
-    new:
-      title: "New user"
-      submit: "Create"
-    create:
-      notice: "New user is created !"
   shared:
     error_messages:
       content: "The form contains"
-
-
-
