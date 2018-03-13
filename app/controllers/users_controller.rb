@@ -20,20 +20,15 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       log_in @user
-      flash[:success] = t "users.create.welcome"
-      redirect_to @user
+      flash[:success] = t "users.create.notice"
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    byebug
-    @user.role = user_params[:pos]
-
     return render :edit unless @user.update_attributes user_params
     flash[:success] = t "users.update.notice"
     redirect_to @user
@@ -48,8 +43,6 @@ class UsersController < ApplicationController
     end
     redirect_to users_url
   end
-
-
 
   private
 
@@ -73,11 +66,11 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to root_url unless admin? current_user
+
   end
 
   def load_user
     @user = User.find_by id: params[:id]
     @user || render(file: "public/404.html", status: 404, layout: true)
   end
-
 end

@@ -1,8 +1,9 @@
 <% provide :title, t(".allusers") %>
 <h1><%= t ".allusers" %></h1>
-
+<% if admin? current_user %>
+<%= link_to t(".adduser"), signup_path, class: "btn btn-default", id: "new-user" %>
+<% end %>
 <%= will_paginate %>
-<%= current_user.name %>
 
 <ul class="users">
   <%= render @users %>
