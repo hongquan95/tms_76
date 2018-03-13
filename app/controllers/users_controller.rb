@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: %i(show)
-  before_action :logged_in_user, only: %i(index update edit)
-  before_action :correct_user, only: %i(update edit)
+  before_action :load_user, only: %i(show destroy)
+  before_action :logged_in_user, except: %i(show new create)
+  before_action :correct_user, only: %i(edit update)
+  before_action :admin_user, only: :destroy
 
   def index
     @users = User.paginate page: params[:page]
@@ -30,9 +31,22 @@ class UsersController < ApplicationController
   end
 
   def update
+    byebug
+    @user.role = user_params[:pos]
+
     return render :edit unless @user.update_attributes user_params
     flash[:success] = t "users.update.notice"
     redirect_to @user
+  end
+
+  def destroy
+    @user.destroy
+    if @user.destroyed?
+      flash[:success] = t "users.destroy.notice"
+    else
+      flash[:success] = t "users.destroy.fail"
+    end
+    redirect_to users_url
   end
 
 
@@ -41,7 +55,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :name, :email, :password,
-      :password_confirmation
+      :password_confirmation, :role
   end
 
   def logged_in_user
@@ -54,7 +68,11 @@ class UsersController < ApplicationController
 
   def correct_user
     load_user
-    redirect_to root_url unless current_user? @user
+    redirect_to root_url unless current_user?(@user) || admin?(current_user)
+  end
+
+  def admin_user
+    redirect_to root_url unless admin? current_user
   end
 
   def load_user

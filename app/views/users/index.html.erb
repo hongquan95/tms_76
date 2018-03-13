@@ -2,6 +2,7 @@
 <h1><%= t ".allusers" %></h1>
 
 <%= will_paginate %>
+<%= current_user.name %>
 
 <ul class="users">
   <%= render @users %>

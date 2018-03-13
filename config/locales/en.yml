@@ -73,12 +73,23 @@ en:
     new:
       remember: "Remember"
       login: "Login"
+    create:
+      invalid: "Invalid Email/Password"
   users:
     index:
       allusers: "All Users"
     edit:
       title: "Edit"
       savechange: "Save Change"
+    user:
+      delete: "delete"
+      yousure: "You sure?"
+      edit: "Edit"
+    destroy:
+      notice: "User deleted"
+      fail: "Delete fail"
+    update:
+      notice: "Profile Updated"
   shared:
     error_messages:
       content: "The form contains"
