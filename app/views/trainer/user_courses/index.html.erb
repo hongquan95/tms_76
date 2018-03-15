@@ -1,19 +1,26 @@
 <% provide :title, t(".all_my_courses") %>
 <h1><%= t ".all_my_courses" %></h1>
-
-<div>
-  <%= t ".you_have" %> <%= pluralize @user_courses.size, t(".courses") %>
+<div id="main">
+  <div class="well well-sm" >
+    <%= t ".you_have" %>
+    <%= pluralize @user_courses.count, t(".courses") %>
+  </div>
+  <%= will_paginate @user_courses %>
+  <table class="table table-striped">
+    <tbody>
+      <% @user_courses.each do |course| %>
+        <tr>
+          <td><%= link_to course.name, trainer_course_path(course) %></td>
+          <td class="btn-group">
+            <%= link_to t(".add_member"), "#",
+class: "btn btn-primary glyphicon glyphicon-plus" %>
+            <%= link_to t(".edit_course"), edit_trainer_course_path(course),
+class: "btn btn-default glyphicon glyphicon-edit" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @user_courses%>
 </div>
-
-<%= will_paginate @user_courses %>
-
-<ul class="users list-group">
-  <% @user_courses.each do |course| %>
-    <li class="list-group-item list-group-item-info">
-      <%=  link_to course.name, "#" %>&nbsp;|&nbsp;<%= link_to t(".add_member"), "#" %>
-    </li>
-  <% end %>
-</ul>
-
-<%= will_paginate @user_courses%>
 

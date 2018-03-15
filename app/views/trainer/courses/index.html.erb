@@ -1,9 +1,15 @@
 <% provide :title, t(".all_course") %>
 <h1><%= t ".all_course" %></h1>
-<%= will_paginate %>
+<div id ="main" >
+  <div class="well well-sm" >
+    <%= t ".course_num" %>&nbsp;<%= pluralize @courses.size, t(".courses") %>
+  </div>
+  <%= will_paginate %>
+  <table class="table table-striped">
+    <tbody>
+      <%= render @courses %>
+    </tbody>
+  </table>
+  <%= will_paginate %>
+</div>
 
-<ul class="users list-group">
-  <%= render @courses %>
-</ul>
-
-<%= will_paginate %>

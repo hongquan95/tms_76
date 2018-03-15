@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: %i(update edit destroy)
 
   def index
-    @users = User.paginate page: params[:page]
+    @users = User.lastest.paginate page: params[:page]
   end
 
   def show; end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     else
       render :new
     end
-    redirect_to user_path
+    redirect_to users_path
   end
 
   def edit; end

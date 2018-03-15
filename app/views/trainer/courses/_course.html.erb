@@ -1,4 +1,9 @@
-<li class="list-group-item list-group-item-info">
-  <%= link_to course.name, trainer_course_path(course) %>
-</li>
-
+<tr>
+  <td>
+    <%= link_to course.name, trainer_course_path(course) %>
+  </td>
+  <td>
+    <%= link_to nil, del_course_path(course), method: :patch,
+      data: {confirm: t(".you_sure")}, class: "btn btn-danger glyphicon glyphicon-trash" %>
+  </td>
+</tr>

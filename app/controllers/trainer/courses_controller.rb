@@ -3,10 +3,13 @@ class Trainer::CoursesController < ApplicationController
   before_action :load_course, except: %i(index create new)
 
   def index
-    @courses = Course.paginate page: params[:page]
+    @courses = Course.not_del.paginate page: params[:page], per_page: Settings.per_page_course
   end
 
-  def show; end
+  def show
+    @trainee = @course.users.trainee.paginate page: params[:page]
+    @trainer = @course.users.trainer
+  end
 
   def new
     @course = Course.new
@@ -16,24 +19,35 @@ class Trainer::CoursesController < ApplicationController
     @course = Course.new course_params
     if @course.save
       flash[:success] = t ".sucess"
-      redirect_to users_path
+      redirect_to trainer_courses_path
     else
       flash[:error] = t ".erorr"
       render :new
     end
   end
 
-  def edit; end
+  def edit
+    @course.user_courses.build
+  end
 
   def update
-    return render :edit unless @course.update_attributes course_params
+    return render :edit unless @course.update_attributes(course_params)
     flash[:success] = t ".success"
-    redirect_to users_path
+    redirect_to trainer_have_courses_path(current_user)
   end
 
   def destroy
     if @course.destroy
-      flash[:success] = t ".successdelete"
+      flash[:success] = t ".success_delete"
+    else
+      flash[:danger] = t ".invalid"
+    end
+    redirect_to trainer_courses_path
+  end
+
+  def del_course
+    if @course.update_attributes(flag_del: :del)
+      flash[:success] = t ".success_delete"
     else
       flash[:danger] = t ".invalid"
     end

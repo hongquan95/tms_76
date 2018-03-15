@@ -12,9 +12,9 @@
 
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, class: "form-control" %>
-  
   <%= f.label :position %>
-  <%= f.select :role, options_for_select(load_role, params[:role]), include_blank: t(".all_status") ,class: "form-control" %>
+  <%= f.select :role, options_for_select(load_role, params[:role]),
+include_blank: t(".all_status") ,class: "form-control" %>
 
   <%= f.label :school  %>
   <%= f.text_field :school, class: "form-control" %>
