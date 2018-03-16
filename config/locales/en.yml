@@ -104,6 +104,8 @@ en:
       title: "Edit"
       h1_edit: "Edit Profile"
       savechange: "Save Change"
+    create:
+      welcome: "User created"
     new:
       title: "New User"
       submit: "Change"
@@ -160,7 +162,10 @@ en:
       update:
         success: "Update successed"
       destroy:
-        successdelete: "Course Deleted"
+        success_delete: "Course Deleted"
+        invalid: "Invalid"
+      del_course:
+        success_delete: "Course Deleted"
         invalid: "Invalid"
       course:
         delete: "Delete"
@@ -171,12 +176,19 @@ en:
         description: "Description"
         start: "Start-Date"
         end: "End-Date"
+        add_mem: "Add Member"
     user_courses:
       index:
         all_my_courses: "My Courses"
         courses: "Course"
         edit_course: "Edit"
         you_have: "You have"
-        add_member: "Add Member"
+        add_member: "Member"
+  user_courses:
+    index:
+      joined: "joined"
+      courses: "Courses"
+
+
 
 

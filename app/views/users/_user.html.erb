@@ -1,8 +1,11 @@
-<li>
+<tr>
+  <td>
   <%= gravatar_for user, size: Settings.avatarsizeshow %>
   <%= link_to user.name, user %>
-  <% if current_user.admin? && !current_user?(user) && !user.admin? %>
-    | <%= link_to t(".delete"), user, method: :delete, data: {confirm: t(".you_sure")} %>
-    | <%= link_to t(".edit"), edit_user_path(user)  %>
+</td>
+  <% if current_user.trainer? || current_user.admin? && !user.admin? && !current_user?(user)%>
+    <td><%= link_to "", user, method: :delete, data: {confirm: t(".you_sure")}, class: "btn btn-danger glyphicon glyphicon-trash" %>
+      <%= link_to "", edit_user_path(user), class: "btn btn-default glyphicon glyphicon-edit"  %>
+    </td>
   <% end %>
-</li>
+</tr>

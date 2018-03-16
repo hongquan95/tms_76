@@ -1,13 +1,16 @@
 <% provide :title, t(".all_course") %>
-<h1><%= t ".all_course" %></h1>
-
-<%= will_paginate %>
-<div>
-  <%= t ".course_num" %> <%= pluralize @courses.size, t(".courses") %>
+<h1><%= t ".all_course" %>
+</h1>
+<div id ="main" >
+  <div class="well well-sm" >
+    <%= t ".course_num" %> <%= pluralize @courses.count, t(".courses") %>
+  </div>
+  <%= will_paginate %>
+  <table class="table table-striped">
+    <tbody>
+      <%= render @courses %>
+    </tbody>
+  </table>
+  <%= will_paginate %>
 </div>
 
-<ul class="users list-group">
-  <%= render @courses %>
-</ul>
-
-<%= will_paginate %>

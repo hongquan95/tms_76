@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: %i(update edit destroy)
 
   def index
-    @users = User.paginate page: params[:page]
+    @users = User.sort_by_create.paginate page: params[:page]
   end
 
   def show; end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     else
       render :new
     end
-    redirect_to user_path
+    redirect_to users_path
   end
 
   def edit; end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     return render :edit unless @user.update_attributes user_params
     flash[:success] = t ".notice"
-    redirect_to @user
+    redirect_to users_path
   end
 
   def destroy

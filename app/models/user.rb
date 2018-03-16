@@ -14,6 +14,8 @@ class User < ApplicationRecord
   before_save :downcase_email
   scope :trainer, ->{where role: 1}
   scope :trainee, ->{where role: 2}
+  scope :sort_by_create, ->{order(created_at: :desc)}
+
   has_secure_password
   enum role: {admin: 0, trainer: 1, trainee: 2}
 

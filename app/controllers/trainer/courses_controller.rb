@@ -3,7 +3,8 @@ class Trainer::CoursesController < ApplicationController
   before_action :load_course, except: %i(index create new)
 
   def index
-    @courses = Course.paginate page: params[:page]
+    @courses = Course.course_not_delete.paginate page: params[:page], per_page: 10
+    # byebug
   end
 
   def show
@@ -22,7 +23,7 @@ class Trainer::CoursesController < ApplicationController
     @course = Course.new course_params
     if @course.save
       flash[:success] = t ".sucess"
-      redirect_to users_path
+      redirect_to  trainer_courses_path
     else
       flash[:error] = t ".erorr"
       render :new
@@ -43,25 +44,28 @@ class Trainer::CoursesController < ApplicationController
 
   def destroy
     if @course.destroy
-      flash[:success] = t ".successdelete"
+      flash[:success] = t ".success_delete"
     else
       flash[:danger] = t ".invalid"
     end
     redirect_to trainer_courses_path
   end
 
-  def add_member? para
-    para == Settings.add_member
+  def del_course
+    if @course.update_attributes(trash: 1)
+      flash[:success] = t ".success_delete"
+    else
+      flash[:danger] = t ".invalid"
+    end
+    redirect_to trainer_courses_path
   end
-
   private
 
   def course_params
-    if add_member? params[:commit]
-      params.require(:course).permit(:name, :description, :start_date, :end_date, user_courses_attributes: [:id, :user_id ])
-    else
-      params.require(:course).permit :name, :description, :start_date, :end_date
-    end
+    # byebug
+      # params.require(:course).permit(:name, :description, :start_date, :end_date, user_courses_attributes: [:id, :user_id ])
+      params.require(:course).permit :name, :description, :start_date, :end_date, :trash
+
   end
 
   def load_course

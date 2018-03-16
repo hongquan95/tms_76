@@ -1,8 +1,12 @@
 <% provide :title, t(".all_users") %>
 <h1><%= t ".all_users" %></h1>
 
-<ul id="main" class="users">
+<div id="main" class="users">
   <%= will_paginate %>
-  <%= render @users %>
+  <table class="table table-striped">
+    <tbody>
+      <%= render @users %>
+  </tbody>
+</table>
   <%= will_paginate %>
 </ul>

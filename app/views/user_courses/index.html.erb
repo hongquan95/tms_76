@@ -1,0 +1,31 @@
+<% provide :title, @user.name %>
+<h1><%= @user.name %><% "" %>
+</h1>
+<div id="main">
+  <div class="well well-sm" ><%= @user.name %> <%= t ".joined" %> <%= pluralize @user_courses.count, t(".courses") %>
+  </div><%= will_paginate @user_courses %>
+  <table class="table table-striped">
+    <thead>
+          <tr>
+            <th><%= t ".course_name" %>
+            </th>
+            </th>
+            <th><%= t ".start" %>
+            </th>
+            <th><%= t ".end" %>
+            </th>
+            <th><%= t ".deleted" %>
+            </th>
+          </tr>
+        </thead>
+    <tbody><% @user_courses.each do |course| %>
+      <tr>
+        <td><%= link_to course.name, trainer_course_path(course) %></td>
+        <td><%= course.start_date %></td>
+        <td><%= course.end_date %></td>
+        <td><%= course.trash %></td>
+      </tr><% end %>
+    </tbody>
+  </table><%= will_paginate @user_courses%>
+</div>
+
