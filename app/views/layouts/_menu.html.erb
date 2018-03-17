@@ -1,0 +1,20 @@
+<span id="button_open" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;<%= t ".button_open" %></span>
+<% if current_user.admin? %>
+  <div class="col-md-12" >
+    <ul id="mySidenav" class="sidenav">
+    	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a>
+    	<li><%= link_to t(".addusers"), signup_path %></li>
+    </ul>
+  </div>
+<% end %>
+<% if current_user.trainer? %>
+  <div class="col-md-12" >
+    <ul id="mySidenav" class="sidenav">
+    	<li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove"></span></a></li>
+      <li><%= link_to t(".new_course"), new_trainer_course_path %></li>
+      <li><%= link_to t(".all_courses"),  trainer_courses_path %></li>
+      <li><%= link_to t(".all_my_course"), trainer_have_courses_path(current_user) %></li>
+    </ul>
+  </div>
+<% end %>
+<%= javascript_include_tag "open_close" %>

@@ -6,6 +6,12 @@ $color_777: #777;
 $color_F48309: #F48309;
 $gray-medium-light: #eaeaea;
 $color-grey: #bbb;
+$color_4A772F: #4A772F;
+$color_818181: #818181;
+$color_FCFCFC: #FCFCFC;
+$color_f1f1f1: #f1f1f1;
+$color_E7E7DE: #E7E7DE;
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -189,8 +195,61 @@ input {
   color: red;
 }
 
-.new-course{
-  margin-left: 174px;
-  position: absolute;
-  margin-top: 37px;
+/*custom menu*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $color_4A772F;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    margin-top: 48px;
+}
+
+.sidenav li {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: $color_818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav li a{
+    text-decoration: none;
+    color: $color_FCFCFC;
+}
+
+.sidenav li:hover {
+    color: $color_f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav li {font-size: 18px;}
+}
+
+#button_open{
+  padding-left: 47px;
+}
+
+body{
+  background-color: $color_E7E7DE
 }
