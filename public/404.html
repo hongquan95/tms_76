@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t ".title404" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= stylesheet_link_tag "404" %>
+  </style>
+</head>
+
+<body class="rails-default-error-page">
+  <!-- This file lives in public/404.html -->
+  <div class="dialog">
+    <div>
+      <h1><%= t ".notexist" %></h1>
+      <p><%= t ".mistyped" %></p>
+    </div>
+    <p><%= t ".checklog" %></p>
+  </div>
+</body>
+</html>

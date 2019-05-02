@@ -1,0 +1,99 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  projecttitle: "Tms76"
+  default:
+    title404: "The page you were looking for doesn't exist (404)"
+    notexist: "The page you were looking for doesn't exist."
+    mistyped: "You may have mistyped the address or the page may have moved."
+    title422: "The change you wanted was rejected (422)"
+    rejectd: "The change you wanted was rejected."
+    canttry: "Maybe you tried to change something you didn't have access to."
+    title500: "We're sorry, but something went wrong (500)"
+    wrong: "We're sorry, but something went wrong."
+    checklog: "If you are the application owner check the logs for more information."
+  layouts:
+    home:
+      content_h1: "Welcome to Framgia Training System"
+      content_home: "This is the home page for the"
+      content_link: "Framgia"
+      href: "https://education.framgia.vn"
+      edit: "Edit"
+    header:
+      title: "Framgia Training System"
+      content_link_home: "Home"
+      content_link_help: "Help"
+      content_link_Login: "Log in"
+      edit:
+      profile: "Profile"
+      users: "Users"
+      edit: "Edit"
+    footer:
+      content: "© 2017 By Framgia - Human Development Division - Education Section - All rights reserved."
+    application:
+      href_logo: "https://cdn.dribbble.com/users/975753/avatars/small/334ae3b0c36422288bd22fc6ad5ce6b3.png?1445248755"
+      full_title: "Framgia Training System"
+  static_pages:
+    help:
+      title: "Help"
+      content_h1: "Welcome to Framgia Training System"
+      content_help: "This is the help page for the"
+      content_link: "Framgia"
+      href: "https://education.framgia.vn"
+  sessions:
+    new:
+      remember: "Remember"
+      login: "Login"
+    create:
+      invalid: "Invalid Email/Password"
+  users:
+    index:
+      allusers: "All Users"
+    edit:
+      title: "Edit"
+      savechange: "Save Change"
+    new:
+      title: "New User"
+      submit: "Change"
+    user:
+      delete: "delete"
+      yousure: "You sure?"
+      edit: "Edit"
+    destroy:
+      notice: "User deleted"
+      fail: "Delete fail"
+    update:
+      notice: "Profile Updated"
+  shared:
+    error_messages:
+      content: "The form contains"
